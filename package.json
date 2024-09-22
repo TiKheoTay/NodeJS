@@ -1,19 +1,35 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000N\u0000o\u0000d\u0000e\u0000J\u0000S\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "#\u0000 \u0000N\u0000o\u0000d\u0000e\u0000J\u0000S\u0000\r\u0000 \u0000",
+  "main": "./practice/src/app.js",
   "scripts": {
-    "dev": "vite"
+    "start": "nodemon --inspect practice/src/app.js",
+    "watch": "node-sass --watch practice/src/resources/scss --output practice/src/public/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiKheoTay/NodeJS.git"
+  },
+  "keywords": [
+    "pvt"
+  ],
+  "author": "pvt",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TiKheoTay/NodeJS/issues"
+  },
+  "homepage": "https://github.com/TiKheoTay/NodeJS#readme",
   "dependencies": {
     "express": "^4.21.0",
+    "express-handlebars": "^8.0.1",
+    "handlebars": "^4.7.8",
+    "node-sass": "^9.0.0",
     "nodejs": "file:"
   },
   "devDependencies": {
-    "vite-plugin-node": "^3.1.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
   }
 }
