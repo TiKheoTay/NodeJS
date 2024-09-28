@@ -3,8 +3,8 @@ const app = express();
 const configViewEngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
 require('dotenv').config();
-const mysql = require('mysql2');
-const hostname = process.env.HOST || 'localhost';
+const connection = require('./config/database');
+const hostname = process.env.HOST_NAME || 'localhost';
 const port = process.env.PORT || 3000;
 
 
@@ -12,20 +12,7 @@ const port = process.env.PORT || 3000;
 
 
 //test connect db
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3307,
-    user: 'root',
-    password: '123456',
-    database: 'laptopshop'
-});
 
-connection.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('Mysql connected...');
-});
 
 //simple query
 
@@ -47,7 +34,7 @@ configViewEngine(app);
 
 
 //khai báo routes
-app.use('/v', webRoutes);//tất cả route đều có /v đứng trước 
+app.use('/', webRoutes); //tất cả route đều có / đứng trước 
 
 
 

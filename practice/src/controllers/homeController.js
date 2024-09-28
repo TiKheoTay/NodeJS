@@ -1,11 +1,14 @@
+const connection = require('../config/database');
 const getHomepage = (req, res) => {
-    res.send('Hello World');
+    return res.render('home');
 }
-const getAboutPage = (req, res) => {
-    res.render('sample.ejs');
+
+const postCreateUser = (req, res) => {
+    res.send('create user');
 }
+
 
 module.exports = {
     getHomepage,
-    getAboutPage
+    postCreateUser
 }

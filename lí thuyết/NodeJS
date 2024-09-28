@@ -22,3 +22,5 @@ JSON sử dụng phổ biến nhất
         - Message body: json
 
     
+migrations: cấu hình db
+ 
