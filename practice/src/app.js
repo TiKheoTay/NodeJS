@@ -2,44 +2,30 @@ const express = require('express');
 const app = express();
 const configViewEngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
+
+//config env
 require('dotenv').config();
+
+//config database
 const connection = require('./config/database');
-const hostname = process.env.HOST_NAME || 'localhost';
-const port = process.env.PORT || 3000;
 
+// Kiểm tra kết nối
+connection.query('SELECT 1')
+    .then(() => console.log('Kết nối database thành công.'))
+    .catch(err => console.error('Lỗi kết nối database:', err));
 
-
-
-
-//test connect db
-
-
-//simple query
-
-connection.query(
-    'SELECT * FROM Users p',
-    function (err, results, fields) {
-        console.log('results = ', results); // results contains rows returned by server
-        console.log('fields = ', fields); // fields contains extra meta data about results, if available
-    }
-);
-
-
-
+//config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //config view engine
 configViewEngine(app);
 
-
-
-
 //khai báo routes
-app.use('/', webRoutes); //tất cả route đều có / đứng trước 
+app.use('/', webRoutes); //tất cả routes đều có / đứng trước 
 
-
-
-
-
+const hostname = process.env.HOST_NAME || 'localhost';
+const port = process.env.PORT || 3000;
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);
 })

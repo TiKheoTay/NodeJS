@@ -27,7 +27,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "mysql2": "^3.11.3",
-    "nodejs": "file:"
+    "nodejs": "file:",
+    "promise": "^8.3.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
